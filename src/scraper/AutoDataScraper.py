@@ -32,15 +32,20 @@ class AutoDataScraper(BaseScrapper):
         return html.find_all('tr', class_="lred")
 
     def get_generation_start_end(self, a_tag):
-        if a_tag.find('strong', class_="end"):
-            return a_tag.find('strong', class_="end").text.split(' - ')
-        return a_tag.find('strong', class_="cur").text.split(' - ')
+        end_year_tag = a_tag.find('strong', class_="end")
+        if end_year_tag:
+            return end_year_tag.text.split(' - ')
+
+        start_year_tag = a_tag.find('strong', class_="cur")
+        if start_year_tag:
+            return start_year_tag.text.split(' - ')
+
+        return None, None
 
     def get_start_end_production_years(self, a_tag):
         generation_years = self.get_generation_start_end(a_tag)
 
-        return Utils.get_int_value_from_string(generation_years[0]), \
-            Utils.get_int_value_from_string(generation_years[1])
+        return Utils.get_int_value_from_string(generation_years[0]), Utils.get_int_value_from_string(generation_years[1])
 
     def models_generations_extractor(self, href):
         model_generations_html = self.get_soup_html_from(f"{self.base_url}{href}")
