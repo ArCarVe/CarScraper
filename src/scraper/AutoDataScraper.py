@@ -58,6 +58,10 @@ class AutoDataScraper(BaseScrapper):
     def generation_modifications_extractor(self, href):
         modifications_html = self.get_soup_html_from(f"{self.base_url}{href}")
         modifications_table = modifications_html.find(id="outer").find('table')
+
+        if not modifications_table:
+            return None
+
         for modification in modifications_table.find_all('a'):
             if modification.find('span', class_="tit"):
                 yield modification['href']
