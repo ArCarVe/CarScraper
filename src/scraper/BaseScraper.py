@@ -24,7 +24,7 @@ class BaseScrapper:
             table_data = table_head.parent.find("td")
             if field_name in table_head.text:
                 result = self.clear_string(table_data.text)
-        except Exception as e:
-            print(e)
+        except Exception:
+            print(f'The field: {field_name} is missing')
         
         return result
