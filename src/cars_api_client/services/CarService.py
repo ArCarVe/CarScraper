@@ -1,4 +1,3 @@
-import requests
 from cars_api_client.services.Service import Service
 
 
