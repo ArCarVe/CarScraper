@@ -1,10 +1,10 @@
+from infrastructure.cars_api_client.cars_api import CarsApiClient
 from scraper.BaseScraper import BaseScrapper
-from cars_api_client.cars_api import CarsApiClient
 from models.Generation import Generation
 from models.Brand import Brand
 from models.Model import Model
-from models.Car import Car
 from utils.Utils import Utils
+from models.Car import Car
 
 
 class AutoDataScraper(BaseScrapper):
@@ -45,7 +45,10 @@ class AutoDataScraper(BaseScrapper):
     def get_start_end_production_years(self, a_tag):
         generation_years = self.get_generation_start_end(a_tag)
 
-        return Utils.get_int_value_from_string(generation_years[0]), Utils.get_int_value_from_string(generation_years[1])
+        return (
+            Utils.get_int_value_from_string(generation_years[0]), 
+            Utils.get_int_value_from_string(generation_years[1])
+        )
 
     def models_generations_extractor(self, href):
         model_generations_html = self.get_soup_html_from(f"{self.base_url}{href}")
