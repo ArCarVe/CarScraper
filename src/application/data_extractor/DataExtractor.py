@@ -1,5 +1,5 @@
 from adapter.cars_api_client.cars_api import CarsApiClient
-from scraper.AutoDataScraper import AutoDataScraper
+from application.scraper.AutoDataScraper import AutoDataScraper
 
 
 class DataExtractor:

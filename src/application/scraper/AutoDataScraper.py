@@ -1,5 +1,5 @@
 from adapter.cars_api_client.cars_api import CarsApiClient
-from scraper.BaseScraper import BaseScrapper
+from application.scraper.BaseScraper import BaseScrapper
 from domain.models.Generation import Generation
 from domain.models.Brand import Brand
 from domain.models.Model import Model
