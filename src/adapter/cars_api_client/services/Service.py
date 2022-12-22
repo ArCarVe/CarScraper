@@ -1,10 +1,11 @@
 from abc import abstractmethod
+from infrastructure.config import Config
 import requests
 
 
 class Service():
 
-    def __init__(self, url="http://localhost:8080"):
+    def __init__(self, url=Config.API_HOST):
         self.url = url
 
     def post_request(self, uri, entity, **kwargs):
