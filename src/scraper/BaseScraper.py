@@ -5,7 +5,6 @@ from re import sub
 
 class BaseScrapper:
 
-
     def __init__(self, base_url="https://www.auto-data.net"):
         self.base_url = base_url
 

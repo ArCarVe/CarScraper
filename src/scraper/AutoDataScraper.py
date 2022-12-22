@@ -1,10 +1,10 @@
 from infrastructure.cars_api_client.cars_api import CarsApiClient
 from scraper.BaseScraper import BaseScrapper
-from models.Generation import Generation
-from models.Brand import Brand
-from models.Model import Model
+from domain.models.Generation import Generation
+from domain.models.Brand import Brand
+from domain.models.Model import Model
+from domain.models.Car import Car
 from utils.Utils import Utils
-from models.Car import Car
 
 
 class AutoDataScraper(BaseScrapper):
