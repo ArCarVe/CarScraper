@@ -1,7 +1,7 @@
-from cars_api_client.services.GenerationService import GenerationService
-from cars_api_client.services.BrandService import BrandService
-from cars_api_client.services.ModelService import ModelService
-from cars_api_client.services.CarService import CarService
+from infrastructure.cars_api_client.services.GenerationService import GenerationService
+from infrastructure.cars_api_client.services.BrandService import BrandService
+from infrastructure.cars_api_client.services.ModelService import ModelService
+from infrastructure.cars_api_client.services.CarService import CarService
 
 class CarsApiClient:
 

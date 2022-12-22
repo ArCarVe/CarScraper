@@ -1,5 +1,5 @@
+from infrastructure.cars_api_client.cars_api import CarsApiClient
 from scraper.AutoDataScraper import AutoDataScraper
-from cars_api_client.cars_api import CarsApiClient
 
 
 class DataExtractor:

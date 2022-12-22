@@ -1,4 +1,4 @@
-from cars_api_client.services.Service import Service
+from infrastructure.cars_api_client.services.Service import Service
 
 
 class GenerationService(Service):
