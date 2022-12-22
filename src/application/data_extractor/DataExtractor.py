@@ -1,5 +1,5 @@
 from adapter.cars_api_client.cars_api import CarsApiClient
-from scraper.AutoDataScraper import AutoDataScraper
+from application.scraper.AutoDataScraper import AutoDataScraper
 
 
 class DataExtractor:
@@ -11,21 +11,18 @@ class DataExtractor:
 
     def _extract_data(self):
         for brand, brand_href in self.scraper.brands_extractor():
-            print(brand)
             brand_db = self.api.post_brand(brand)
 
             self._extract_models(brand_db.get('brandId'), brand_href)
 
     def _extract_models(self, brand_id, brand_href):
         for model, model_href in self.scraper.brand_models_extractor(brand_href):
-            print(model)
             model_db = self.api.post_model(brand_id, model)
 
             self._extract_generations(model_db.get('modelId'), model_href)
 
     def _extract_generations(self, model_id, model_href):
         for generation, generation_href in self.scraper.models_generations_extractor(model_href):
-            print(generation)
             generation_db = self.api.generation_service.post(model_id, generation)
 
             self._extract_modifications(generation_db.get('generationId'), generation_href)   

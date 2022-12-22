@@ -1,4 +1,4 @@
-from data_extractor.DataExtractor import DataExtractor
+from application.data_extractor.DataExtractor import DataExtractor
 
 
 if __name__ == '__main__':
